@@ -64,7 +64,7 @@ int partition(int *array, size_t size, int low, int high)
 	swap(&array[i], &array[high]);
 	print_array(array, size);
 
-	return (j);
+	return (i);
 }
 
 /**
@@ -79,7 +79,7 @@ void partition_sort(int *array, size_t size, int low, int high)
 {
 	int pivot;
 
-	if (low < high)
+	if (high - low > 0)
 	{
 		pivot = partition(array, size, low, high);
 		partition_sort(array, size, low, pivot - 1);
