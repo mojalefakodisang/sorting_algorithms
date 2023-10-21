@@ -17,7 +17,7 @@ int main(void)
 	quick_sort(array, n);
 	printf("\n");
 	print_array(array, n);
-	printf("================================\n");
+	printf("\n==================== End ====================\n");
 	print_array(arr, m);
 	printf("\n");
 	quick_sort(arr, m);
