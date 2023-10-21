@@ -91,9 +91,7 @@ void quick_sort(int *array, size_t size)
 		}
 	}
 
-	if (flag == 0)
-		return;
-	else if (flag == 1)
+	if (flag == 1)
 	{
 		low = 0;
 		high = size - 1;
