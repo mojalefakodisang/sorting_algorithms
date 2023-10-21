@@ -16,6 +16,26 @@ void swap(int *a, int *b)
 }
 
 /**
+ * is_sorted - checks if an array is sorted or not
+ *
+ * @array: array to be checked
+ * @size: size of the array
+ *
+ * Return: returns 0 if not sorted else 1
+ */
+int is_sorted(int *array, size_t size)
+{
+	size_t i;
+
+	for (i = 0; i < size - 1; i++)
+	{
+		if (array[i] > array[i + 1])
+			return (0);
+	}
+
+	return (1);
+}
+/**
  * partition - algorithm to that sorts an array recursively
  *
  * @array: array to be sorted
@@ -44,7 +64,7 @@ int partition(int *array, size_t size, int low, int high)
 	swap(&array[i], &array[high]);
 	print_array(array, size);
 
-	return (i);
+	return (j);
 }
 
 /**
@@ -75,23 +95,11 @@ void partition_sort(int *array, size_t size, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	int low, high, flag = 0;
-	size_t i, j = 0;
+	int low, high;
 
 	if (array == NULL || size < 2)
 		return;
-	for (i = 0; i < size; i++)
-	{
-		for (j = 0; j < size - i - 1; j++)
-		{
-			if (array[i] > array[j])
-				flag = 0;
-			else
-				flag = 1;
-		}
-	}
-
-	if (flag == 1)
+	if (is_sorted(array, size) == 0)
 	{
 		low = 0;
 		high = size - 1;
