@@ -44,7 +44,7 @@ int partition(int *array, size_t size, int low, int high)
 	swap(&array[i], &array[high]);
 	print_array(array, size);
 
-	return (j);
+	return (i);
 }
 
 /**
@@ -75,12 +75,28 @@ void partition_sort(int *array, size_t size, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	int low, high;
+	int low, high, flag = 0;
+	size_t i, j = 0;
 
 	if (array == NULL || size < 2)
 		return;
+	for (i = 0; i < size; i++)
+	{
+		for (j = 0; j < size - i - 1; j++)
+		{
+			if (array[i] > array[j])
+				flag = 0;
+			else
+				flag = 1;
+		}
+	}
 
-	low = 0;
-	high = size - 1;
-	partition_sort(array, size, low, high);
+	if (flag == 0)
+		return;
+	else if (flag == 1)
+	{
+		low = 0;
+		high = size - 1;
+		partition_sort(array, size, low, high);
+	}
 }
