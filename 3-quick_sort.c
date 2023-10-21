@@ -56,13 +56,19 @@ int partition(int *array, size_t size, int low, int high)
 		if (array[j] < pivot)
 		{
 			i++;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			if (is_sorted(array, size) == 0)
+			{
+				swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
 		}
 	}
-	i++;
-	swap(&array[i], &array[high]);
-	print_array(array, size);
+	if (is_sorted(array, size) == 0)
+	{
+		i++;
+		swap(&array[i], &array[high]);
+		print_array(array, size);
+	}
 
 	return (i);
 }
@@ -105,4 +111,6 @@ void quick_sort(int *array, size_t size)
 		high = size - 1;
 		partition_sort(array, size, low, high);
 	}
+	else
+		return;
 }
