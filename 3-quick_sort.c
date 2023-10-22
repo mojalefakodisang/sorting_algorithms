@@ -79,7 +79,9 @@ void partition_sort(int *array, size_t size, int low, int high)
 {
 	int pivot;
 
-	if (high - low > 0)
+	if (low >= high)
+		return;
+	else
 	{
 		pivot = partition(array, size, low, high);
 		if (is_sorted(array, size) == 0)
