@@ -81,14 +81,12 @@ void partition_sort(int *array, size_t size, int low, int high)
 
 	if (low >= high)
 		return;
-	else
+
+	pivot = partition(array, size, low, high);
+	if (is_sorted(array, size) == 0)
 	{
-		pivot = partition(array, size, low, high);
-		if (is_sorted(array, size) == 0)
-		{
-			partition_sort(array, size, low, pivot - 1);
-			partition_sort(array, size, pivot + 1, high);
-		}
+		partition_sort(array, size, low, pivot - 1);
+		partition_sort(array, size, pivot + 1, high);
 	}
 }
 
@@ -100,7 +98,7 @@ void partition_sort(int *array, size_t size, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
+	if (array == NULL || size <= 0)
 		return;
 
 	if (is_sorted(array, size) == 0)
