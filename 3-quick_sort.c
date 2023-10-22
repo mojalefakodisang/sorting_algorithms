@@ -60,6 +60,7 @@ int partition(int *array, size_t size, int low, int high)
 			print_array(array, size);
 		}
 	}
+
 	i++;
 	swap(&array[i], &array[high]);
 	print_array(array, size);
@@ -98,7 +99,7 @@ void partition_sort(int *array, size_t size, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size <= 0)
+	if (array == NULL || size < 2)
 		return;
 
 	if (is_sorted(array, size) == 0)
