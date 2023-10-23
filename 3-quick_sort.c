@@ -48,16 +48,16 @@ int is_sorted(int *array, size_t size)
 int partition(int *array, size_t size, int low, int high)
 {
 	int i, j;
-	int pivot = array[high];
+	int index_pivot = high;
 
 	i = low - 1;
-	for (j = low; j <= high; j++)
+	for (j = low; j < high; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= array[index_pivot])
 		{
+			i++;
 			if (i != j)
 			{
-				i++;
 				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
@@ -65,9 +65,9 @@ int partition(int *array, size_t size, int low, int high)
 	}
 
 	i++;
-	if (array[i] != pivot)
+	if (i != index_pivot)
 	{
-		swap(&array[i], &array[high]);
+		swap(&array[i], &array[index_pivot]);
 		print_array(array, size);
 	}
 
@@ -90,11 +90,13 @@ void partition_sort(int *array, size_t size, int low, int high)
 		return;
 
 	pivot = partition(array, size, low, high);
-	if (is_sorted(array, size) == 0)
+	if (low < high)
 	{
 		partition_sort(array, size, low, pivot - 1);
 		partition_sort(array, size, pivot + 1, high);
 	}
+	else
+		return;
 }
 
 /**
