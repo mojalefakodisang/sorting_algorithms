@@ -1,5 +1,11 @@
 #include "sort.h"
 
+/**
+ * insertion_sort_list - Sorts the list in ascending order
+ * using Insertion Sort Algorithm
+ *
+ * @list: List to be sorted
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *key;
@@ -33,3 +39,4 @@ void insertion_sort_list(listint_t **list)
 		current = current->next;
 	}
 }
+
