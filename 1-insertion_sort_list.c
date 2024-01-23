@@ -1,5 +1,12 @@
 #include "sort.h"
 
+/**
+ * swap_nodes - Swaps twon nodes
+ *
+ * @h: Head of the list
+ * @node_a: First node
+ * @node_b: Second node
+ */
 void swap_nodes(listint_t **h, listint_t **node_a, listint_t *node_b)
 {
 	(*node_a)->next = node_b->next;
