@@ -2,7 +2,7 @@
 
 /**
  * swap - Swaps the element between two variables
- * 
+ *
  * @a: First Variable
  * @b: Second Variable
 */
@@ -18,7 +18,7 @@ void swap(int *a, int *b)
 /**
  * selection_sort - Sorts an array in ascending order
  * using the Selection Sort Algorithm
- * 
+ *
  * @array: Array to be sorted
  * @size: Size of the array to be sorted
 */
@@ -28,7 +28,7 @@ void selection_sort(int *array, size_t size)
 
 	if (sizeof(array) == 0 || size == 0)
 		return;
-	
+
 	for (i = 0; i < size - 1; i++)
 	{
 		min_idx = i;
