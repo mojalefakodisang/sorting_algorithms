@@ -49,7 +49,6 @@ int main(void)
     printf("\n");
     insertion_sort_list(&list);
     printf("\n");
-	printf("===\n");
     print_list(list);
     return (0);
 }
